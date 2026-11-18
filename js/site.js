@@ -29,7 +29,8 @@ const LINKS = {
   lynk: { web: '', ...rel('lynk', '0.1.1') },
   rakk: { web: '', ...rel('rakk', '0.2.0') },
   mapp: { web: '', ...rel('mapp', '0.2.0') },
-  kast: { web: '', ...relBin('kast', '0.1.0') }
+  // kast buttons greyed till the release is mirrored, then swap to: ...relBin('kast', '0.1.0')
+  kast: { web: '', version: '0.1.0', windows: '', mac: '', linux: '' }
 };
 
 // 'kue.windows' -> LINKS.kue.windows
