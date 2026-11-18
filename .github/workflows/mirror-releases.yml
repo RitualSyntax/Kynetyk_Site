@@ -31,29 +31,33 @@ jobs:
 
       - name: Copy
         run: |
-          set -e
           for r in $APPS; do
             app=$(echo $r | tr A-Z a-z)
-            tag=$(GH_TOKEN=$SRC_TOKEN gh release view -R RitualSyntax/$r --json tagName -q .tagName)
+            # latest release on the app repo, skip the app if it cant be read
+            rel=$(GH_TOKEN=$SRC_TOKEN gh api repos/RitualSyntax/$r/releases/latest) || { echo "!! cant read $r, skipping"; continue; }
+            tag=$(echo "$rel" | jq -r .tag_name)
             newtag="$app-$tag"
             echo "== $r $tag -> $newtag"
-            have=$(gh release view $newtag --json assets -q '.assets[].name' 2>/dev/null || true)
+            have=$(gh api repos/$GITHUB_REPOSITORY/releases/tags/$newtag -q '.assets[].name' 2>/dev/null || true)
             rm -rf dl && mkdir dl
-            # installers only, skip updater files
-            GH_TOKEN=$SRC_TOKEN gh release download $tag -R RitualSyntax/$r -D dl -p '*.exe' -p '*.dmg' -p '*.AppImage'
-            for f in dl/*; do
-              if echo "$have" | grep -qx "$(basename $f)"; then echo "  have $(basename $f)"; rm "$f"; fi
+            # installers only, only the ones not already here
+            echo "$rel" | jq -r '.assets[] | select(.name|test("\\.(exe|dmg|AppImage)$")) | "\(.id) \(.name)"' | while read id name; do
+              if echo "$have" | grep -qx "$name"; then echo "  have $name"; continue; fi
+              echo "  get $name"
+              GH_TOKEN=$SRC_TOKEN gh api -H "Accept: application/octet-stream" repos/RitualSyntax/$r/releases/assets/$id > "dl/$name"
             done
-            if [ -z "$have" ] && ! gh release view $newtag >/dev/null 2>&1; then
+            [ -n "$(ls dl)" ] || continue
+            if gh release view $newtag >/dev/null 2>&1; then
+              gh release upload $newtag dl/* --clobber
+            else
               gh release create $newtag dl/* --target downloads \
                 --title "KYNETYK $app $tag" --notes "Installers for KYNETYK $app $tag. Download from https://kynetyk.gt.tc"
-            elif [ -n "$(ls dl)" ]; then
-              gh release upload $newtag dl/* --clobber
             fi
           done
 
       # old releases were tagged on main, move them all onto downloads
       - name: Retag onto downloads
+        if: always()
         run: |
           git fetch -q --tags --force
           for t in $(git tag -l '*-v*'); do git tag -f "$t" HEAD >/dev/null; done
