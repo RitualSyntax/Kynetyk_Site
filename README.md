@@ -1,30 +1,51 @@
-# KYNETYK site
+# KYNETYK
 
-Plain static site, no build step. Runs on GitHub Pages as is.
+**Software for live shows.**
 
-## Publish
-1. Make a new repo on GitHub (e.g. `kynetyk`), upload everything in this folder to the root.
-2. Repo > Settings > Pages > Source: "Deploy from a branch", branch `main`, folder `/ (root)`. Save.
-3. Live in a minute or two at `https://<username>.github.io/<repo>/`.
+KYNETYK makes tools for theatre, live events and visual performance. Each app does one job well, and they all talk to each other. They're calm, readable and dependable on the night.
 
-Name the repo `<username>.github.io` if you want it at the root domain instead.
-Custom domain: add it under Settings > Pages and point DNS at GitHub.
+Every app is free, with every feature included. No trials, no accounts.
 
-Note: 404.html uses root paths (`/css/...`), so it only looks right on a root domain or custom domain.
+**[Visit the website →](https://kynetyk.gt.tc)**
 
-## Fill in
-Top of `js/site.js`:
-- `LINKS.donate` - Ko-fi, GitHub Sponsors, etc
-- `LINKS.windows`, `LINKS.mac`, `LINKS.linux` - release downloads
-- `LINKS.github` - repo url
-- `LINKS.contact` - `mailto:` or a page
-- `VERSION`
+---
 
-Empty links show greyed out as "Coming soon".
+## The Apps
 
-## Media
-`media/demo.mp4` is the looping demo, `media/poster.jpg` its still.
-Gallery shots are `media/cuelist.jpg`, `curves.jpg`, `showmode.jpg`, `remote.jpg` (1600x940ish).
-`media/og.png` is the link preview image.
+| App | What It Does | Download |
+| --- | --- | --- |
+| **kue** | Show control for theatre and live events. Audio, video, OSC, MIDI and timecode in one cue list. | [Windows](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/kue-v0.3.0/kynetyk-kue-windows.exe) · [macOS](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/kue-v0.3.0/kynetyk-kue-mac.dmg) · [Linux](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/kue-v0.3.0/kynetyk-kue-linux.AppImage) |
+| **vyz** | Live visuals for VJs and video designers. Clip grid, effects with envelopes, beat sync and outputs cut into slices. | [Windows](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/vyz-v0.1.1/kynetyk-vyz-windows.exe) · [macOS](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/vyz-v0.1.1/kynetyk-vyz-mac.dmg) · [Linux](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/vyz-v0.1.1/kynetyk-vyz-linux.AppImage) |
+| **kode** | Timecode in one place. Big readouts, several streams side by side, and triggers on a timeline. | [Windows](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/kode-v0.1.1/kynetyk-kode-windows.exe) · [macOS](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/kode-v0.1.1/kynetyk-kode-mac.dmg) · [Linux](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/kode-v0.1.1/kynetyk-kode-linux.AppImage) |
+| **konv** | A simple file converter for video, audio and images. Drop files in, pick a format, done. | [Windows](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/konv-v0.1.0/kynetyk-konv-windows.exe) · [macOS](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/konv-v0.1.0/kynetyk-konv-mac.dmg) · [Linux](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/konv-v0.1.0/kynetyk-konv-linux.AppImage) |
+| **dekk** | DJ software for live production. Two or four decks, beat analysis, sync, hot cues and a full mixer. | [Windows](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/dekk-v0.1.0/kynetyk-dekk-windows.exe) · [macOS](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/dekk-v0.1.0/kynetyk-dekk-mac.dmg) · [Linux](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/dekk-v0.1.0/kynetyk-dekk-linux.AppImage) |
+| **lynk** | The bridge between the KYNETYK apps. See what every app puts out and patch it where it needs to go. | [Windows](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/lynk-v0.1.0/kynetyk-lynk-windows.exe) · [macOS](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/lynk-v0.1.0/kynetyk-lynk-mac.dmg) · [Linux](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/lynk-v0.1.0/kynetyk-lynk-linux.AppImage) |
+| **rakk** | Live shader visuals you play like an instrument. Faders, modulation and scenes, no code on screen. | [Windows](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/rakk-v0.1.1/kynetyk-rakk-windows.exe) · [macOS](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/rakk-v0.1.1/kynetyk-rakk-mac.dmg) · [Linux](https://github.com/RitualSyntax/Kynetyk_Site/releases/download/rakk-v0.1.1/kynetyk-rakk-linux.AppImage) |
 
-Fonts are bundled in `fonts/` (Archivo, Doto, Space Grotesk, all OFL, licences included).
+**On the way:** mapp, projection mapping that works with vyz.
+
+You can also find every installer on the [Releases page](https://github.com/RitualSyntax/Kynetyk_Site/releases).
+
+## Better Together
+
+The apps are built as one family. Cue your visuals from kue, sync them to dekk's tempo, keep everything on one clock with kode, and patch the lot together in lynk.
+
+## Installing
+
+The apps aren't code-signed yet, so your computer may warn you the first time you open one.
+
+- **Windows:** if SmartScreen appears, click **More info**, then **Run anyway**.
+- **macOS:** right-click the app and choose **Open**, then confirm.
+- **Linux:** make the AppImage executable (right-click › Properties › Allow executing, or `chmod +x`), then run it.
+
+## Support KYNETYK
+
+KYNETYK is a one-person studio. Every tool is designed and built by a solo developer with years of experience running video, LED and projection for live shows.
+
+If the apps help your shows, a donation keeps development going and gets new tools out of the door sooner.
+
+**[Donate on Ko-fi ♥](https://ko-fi.com/ritualsyntax)**
+
+---
+
+<sub>This repository hosts the KYNETYK website and app downloads. The apps themselves are closed source.</sub>
