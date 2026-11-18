@@ -1,0 +1,42 @@
+name: Mirror app installers
+
+# copies latest installers from each app repo into releases here
+# app repos need to be public (or add a PAT) for the download bit to work
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/mirror-releases.yml']
+  workflow_dispatch:
+    inputs:
+      apps:
+        description: 'repos to copy, space separated'
+        default: 'Kue vyz Kode konv dekk lynk rakk'
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      APPS: ${{ inputs.apps || 'Kue vyz Kode konv dekk lynk rakk' }}
+    steps:
+      - name: Copy
+        run: |
+          set -e
+          for r in $APPS; do
+            app=$(echo $r | tr A-Z a-z)
+            tag=$(gh release view -R RitualSyntax/$r --json tagName -q .tagName)
+            newtag="$app-$tag"
+            echo "== $r $tag -> $newtag"
+            rm -rf dl && mkdir dl
+            # installers only, skip updater files
+            gh release download $tag -R RitualSyntax/$r -D dl -p '*.exe' -p '*.dmg' -p '*.AppImage'
+            if gh release view $newtag -R $GITHUB_REPOSITORY >/dev/null 2>&1; then
+              gh release upload $newtag dl/* -R $GITHUB_REPOSITORY --clobber
+            else
+              gh release create $newtag dl/* -R $GITHUB_REPOSITORY --target main \
+                --title "KYNETYK $app $tag" --notes "Installers for KYNETYK $app $tag."
+            fi
+          done
