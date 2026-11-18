@@ -17,7 +17,7 @@ const LINKS = {
   donate: 'https://ko-fi.com/ritualsyntax',
   contact: '',   // mailto: works
   kue: { web: '', ...rel('kue', '0.3.0') },
-  vyz: { web: '', ...rel('vyz', '0.2.1') },
+  vyz: { web: '', ...rel('vyz', '0.2.2') },
   kode: { web: '', ...rel('kode', '0.1.1') },
   konv: { web: '', ...rel('konv', '0.1.0') },
   dekk: { web: '', ...rel('dekk', '0.1.0') },
