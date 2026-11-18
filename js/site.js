@@ -16,8 +16,8 @@ const LINKS = {
   contact: '',   // mailto:you@example.com works
   kue: { version: '0.3', web: '', ...rel('RitualSyntax/Kue', 'kynetyk-kue') },
   vyz: { version: '0.1', web: '', ...rel('RitualSyntax/vyz', 'kynetyk-vyz') },
-  kode: { version: '0.1', web: '', ...rel('RitualSyntax/kode', 'kynetyk-kode') },
-  konv: { version: '0.1', web: '', ...rel('RitualSyntax/konv', 'kynetyk-konv') }
+  kode: { version: '0.1.1', web: '', ...rel('RitualSyntax/Kode', 'kynetyk-kode') },
+  konv: { version: '0.1.1', web: '', ...rel('RitualSyntax/konv', 'kynetyk-konv') }
 };
 
 // 'kue.windows' -> LINKS.kue.windows
