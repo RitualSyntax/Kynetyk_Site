@@ -3,13 +3,13 @@
 // links. empty = button greys out (web just hides)
 // installers live on the site repo releases, tagged app-vX.Y.Z
 const DL = 'https://github.com/RitualSyntax/Kynetyk_Site/releases/download';
-const rel = (app, version, files = {}) => {
+const rel = (app, version) => {
   const base = `${DL}/${app}-v${version}/kynetyk-${app}`;
   return {
     version,
-    windows: files.windows ?? `${base}-windows.exe`,
-    mac: files.mac ?? `${base}-mac.dmg`,
-    linux: files.linux ?? `${base}-linux.AppImage`
+    windows: `${base}-windows.exe`,
+    mac: `${base}-mac.dmg`,
+    linux: `${base}-linux.AppImage`
   };
 };
 
@@ -22,8 +22,7 @@ const LINKS = {
   konv: { web: '', ...rel('konv', '0.1.0') },
   dekk: { web: '', ...rel('dekk', '0.1.0') },
   lynk: { web: '', ...rel('lynk', '0.1.0') },
-  // rakk is windows only for now
-  rakk: { web: '', ...rel('rakk', '0.1.0', { windows: `${DL}/rakk-v0.1.0/kynetyk-rakk-setup-0.1.0.exe`, mac: '', linux: '' }) }
+  rakk: { web: '', ...rel('rakk', '0.1.1') }
 };
 
 // 'kue.windows' -> LINKS.kue.windows
