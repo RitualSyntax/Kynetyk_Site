@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # builds the patch notes pages from notes.json
 # add an entry to notes.json (newest first), run: python3 notes-src/build.py
+# also sets the version shown on every page and the download links in js/site.js to the newest entry
+# (only push once the installers are mirrored, or the download buttons 404)
 import json, html, datetime, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -68,4 +70,15 @@ body = f'''    <section class="wrap nhero">
     </section>
     <section class="band"><div class="wrap section-pad stack"><h2 style="font-size: clamp(22px, 2.4vw, 28px)">By app</h2><div class="ncards">{cards}</div></div></section>'''
 (ROOT / 'patch-notes.html').write_text(page('KYNETYK: patch notes', 'What is new in every KYNETYK app.', body))
-print('built', len(ORDER) + 1, 'pages')
+
+# versions everywhere = newest entry
+newest = {app: D['apps'][app]['entries'][0]['v'] for app in ORDER}
+for p in ROOT.glob('*.html'):
+    t = p.read_text()
+    n = re.sub(r'data-text="(\w+)\.version">[^<]*<', lambda m: f'data-text="{m.group(1)}.version">{newest.get(m.group(1), m.group(0))}<' if m.group(1) in newest else m.group(0), t)
+    if n != t: p.write_text(n)
+js = ROOT / 'js' / 'site.js'
+t = js.read_text()
+n = re.sub(r"rel\('(\w+)', '[^']*'\)", lambda m: f"rel('{m.group(1)}', '{newest[m.group(1)]}')" if m.group(1) in newest else m.group(0), t)
+if n != t: js.write_text(n)
+print('built', len(ORDER) + 1, 'pages, versions:', ' '.join(f'{a} {v}' for a, v in newest.items()))
