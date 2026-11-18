@@ -109,6 +109,14 @@
     {
       "col": "later",
       "apps": [
+        "mapp"
+      ],
+      "title": "Alignment mode",
+      "text": "Line up a 3D model with the real object by dragging a few points on the projection onto matching points on the object. mapp works out where the projector is, so the whole mapping lands in place."
+    },
+    {
+      "col": "later",
+      "apps": [
         "konv"
       ],
       "title": "konv on Intel Macs",
