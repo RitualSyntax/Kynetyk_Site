@@ -1,0 +1,104 @@
+{
+  "labels": {
+    "first": ["First release", "The first public version."],
+    "major": ["Major update", "Big new features or a change to how the app works."],
+    "update": ["Update", "Smaller new features and improvements."],
+    "bugfix": ["Bug fix", "Fixes for things that didn't work as they should."],
+    "hotfix": ["Hotfix", "An urgent fix, out soon after a release."]
+  },
+  "apps": {
+    "kue": { "what": "Show control", "entries": [
+      { "v": "0.3.0", "date": "2026-11-16", "type": "first", "title": "kue is out", "items": [
+        "Audio, video, OSC and MIDI cues",
+        "Fades with curve presets and a curve editor",
+        "Timecode in (MTC and LTC), timecode out, and a built-in clock",
+        "Phone remote with a QR code",
+        "Show mode"
+      ] }
+    ] },
+    "vyz": { "what": "Live visuals", "entries": [
+      { "v": "0.2.0", "date": "2026-11-18", "type": "major", "title": "Virtual outputs", "items": [
+        "New output type: Virtual (Windows). There's no window; the picture goes straight to other apps over Spout, so mapp, lynk, Resolume, TouchDesigner and anything else with Spout can pick it up",
+        "Add one in Output setup › Add output › Virtual output. It shows up as \"KYNETYK vyz\" plus the output's name",
+        "Virtual outputs start when you go live, the same as window outputs",
+        "vyz now shows up in lynk with its virtual outputs, ready to patch into mapp"
+      ] },
+      { "v": "0.1.1", "date": "2026-11-17", "type": "first", "title": "vyz is out", "items": [
+        "Clip grid with layers as rows, banks, groups and an A/B group crossfade",
+        "Video, images, cameras, generators and ISF shaders",
+        "22 effects with envelopes on every setting",
+        "Free, beat sync and timecode playback",
+        "Window outputs cut into layered slices, and recording to file",
+        "MIDI and OSC learn, Launchpad and APC presets, MIDI clock in, MTC out and a phone remote"
+      ] }
+    ] },
+    "mapp": { "what": "Projection mapping", "entries": [
+      { "v": "0.2.0", "date": "2026-11-18", "type": "first", "title": "mapp is out", "items": [
+        "Quad, mesh and smooth mesh surfaces with masks, feathering and colour controls",
+        "Split view: pick the part of the source each surface uses on the left, warp it on the right",
+        "Media, generators, ISF shaders, cameras, capture cards and window or screen capture",
+        "KYNETYK sources: pick up virtual outputs from vyz and rakk (or any Spout app) straight from the GPU, with no window to capture (Windows)",
+        "lynk can patch virtual outputs into mapp's Source 1 to 4",
+        "Outputs with edge blending, test patterns and alignment grids",
+        "Cues with fades, fired from GO, timecode (follows kode), MIDI or OSC"
+      ] }
+    ] },
+    "rakk": { "what": "Shader visuals", "entries": [
+      { "v": "0.2.0", "date": "2026-11-18", "type": "major", "title": "Virtual output", "items": [
+        "New Virtual button (Windows): sends rakk's output to other apps over Spout with no window, so mapp, vyz, lynk and other Spout apps can pick it up as \"KYNETYK rakk\"",
+        "It follows the Res setting and comes back on next time if you left it on",
+        "rakk now shows up in lynk while the virtual output is on"
+      ] },
+      { "v": "0.1.1", "date": "2026-11-18", "type": "hotfix", "title": "Installers for every platform", "items": [
+        "Windows, macOS and Linux installers are all built for each release"
+      ] },
+      { "v": "0.1.0", "date": "2026-11-18", "type": "first", "title": "rakk is out", "items": [
+        "Two layers of live shader visuals, mixed and played with eight faders each",
+        "LFO, beat, audio and random modulation on any fader",
+        "Scenes that morph on the bar",
+        "Master effects chain",
+        "Import .frag and .glsl shaders, with faders suggested for you",
+        "MIDI learn, a full-screen output window and recording to file"
+      ] }
+    ] },
+    "lynk": { "what": "Bridge", "entries": [
+      { "v": "0.1.1", "date": "2026-11-18", "type": "update", "title": "Virtual outputs", "items": [
+        "Video patches use the exact names apps give their virtual outputs, so patching vyz or rakk into mapp just works"
+      ] },
+      { "v": "0.1.0", "date": "2026-11-18", "type": "first", "title": "lynk is out", "items": [
+        "Finds every KYNETYK app running on this machine or your network",
+        "Patch, Matrix and Rack views",
+        "Clock master from any app, tap tempo or MIDI clock",
+        "Out of suite: NDI, Spout/Syphon, MIDI clock, Art-Net timecode and OSC",
+        "Save routing as .lynk shows"
+      ] }
+    ] },
+    "kode": { "what": "Timecode", "entries": [
+      { "v": "0.1.1", "date": "2026-11-17", "type": "first", "title": "kode is out", "items": [
+        "Readout, Streams and Triggers views",
+        "Generate, read (LTC, MTC, Art-Net), run on the computer clock or follow another stream",
+        "Triggers that fire OSC or MIDI at a timecode",
+        "LTC, MTC, Art-Net and OSC outputs at 23.976 to 30 fps, drop frame included",
+        "Projects saved as .kode files"
+      ] }
+    ] },
+    "konv": { "what": "File converter", "entries": [
+      { "v": "0.1.0", "date": "2026-11-17", "type": "first", "title": "konv is out", "items": [
+        "Video: H.264, HEVC, ProRes, HAP, DNxHR and VP9",
+        "Audio: WAV, AIFF, FLAC, MP3, AAC and OGG, with loudness normalising",
+        "Images and image sequences, plus extracting audio",
+        "Presets for media servers, editing, web and show audio",
+        "A queue for files and whole folders, with GPU encoding where available"
+      ] }
+    ] },
+    "dekk": { "what": "DJ", "entries": [
+      { "v": "0.1.0", "date": "2026-11-18", "type": "first", "title": "dekk is out", "items": [
+        "Library with background BPM, beatgrid, key and waveform analysis",
+        "Two or four decks with hot cues, loops, sync and key lock",
+        "Four-channel mixer with EQ, filter, crossfader and headphone cue",
+        "Prepare view, MIDI learn and recording the mix",
+        "OSC beat and BPM out for vyz"
+      ] }
+    ] }
+  }
+}
