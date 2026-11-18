@@ -32,7 +32,8 @@
           "title": "New icon",
           "items": [
             "New app icon: the Stack mark, a dot-matrix cue list with the red square on the standby cue",
-            "The light rail at the side shows the new mark too"
+            "The light rail at the side shows the new mark too",
+            "The icon has a black background, to match the rest of the KYNETYK apps"
           ]
         },
         {
@@ -53,6 +54,15 @@
     "vyz": {
       "what": "Live visuals",
       "entries": [
+        {
+          "v": "0.2.3",
+          "date": "2026-11-18",
+          "type": "update",
+          "title": "Black icon",
+          "items": [
+            "App icon now has a black background, to match the rest of the KYNETYK apps"
+          ]
+        },
         {
           "v": "0.2.2",
           "date": "2026-11-18",
@@ -104,6 +114,15 @@
     "mapp": {
       "what": "Projection mapping",
       "entries": [
+        {
+          "v": "0.2.1",
+          "date": "2026-11-18",
+          "type": "update",
+          "title": "Black icon",
+          "items": [
+            "App icon now has a black background, to match the rest of the KYNETYK apps"
+          ]
+        },
         {
           "v": "0.2.0",
           "date": "2026-11-18",
@@ -164,6 +183,15 @@
       "what": "Bridge",
       "entries": [
         {
+          "v": "0.1.2",
+          "date": "2026-11-18",
+          "type": "update",
+          "title": "Black icon",
+          "items": [
+            "App icon now has a black background, to match the rest of the KYNETYK apps"
+          ]
+        },
+        {
           "v": "0.1.1",
           "date": "2026-11-18",
           "type": "update",
@@ -191,6 +219,15 @@
       "what": "Timecode",
       "entries": [
         {
+          "v": "0.1.2",
+          "date": "2026-11-18",
+          "type": "update",
+          "title": "Black icon",
+          "items": [
+            "App icon now has a black background, to match the rest of the KYNETYK apps"
+          ]
+        },
+        {
           "v": "0.1.1",
           "date": "2026-11-17",
           "type": "first",
@@ -214,7 +251,8 @@
           "type": "update",
           "title": "New icon",
           "items": [
-            "New app icon: the Progress mark, a dot-matrix progress ring that starts at the red square"
+            "New app icon: the Progress mark, a dot-matrix progress ring that starts at the red square",
+            "The icon has a black background, to match the rest of the KYNETYK apps"
           ]
         },
         {
@@ -235,6 +273,15 @@
     "dekk": {
       "what": "DJ",
       "entries": [
+        {
+          "v": "0.1.1",
+          "date": "2026-11-18",
+          "type": "update",
+          "title": "Black icon",
+          "items": [
+            "App icon now has a black background, to match the rest of the KYNETYK apps"
+          ]
+        },
         {
           "v": "0.1.0",
           "date": "2026-11-18",
