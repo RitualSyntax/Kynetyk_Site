@@ -12,6 +12,11 @@ const rel = (app, version) => {
     linux: `${base}-linux.AppImage`
   };
 };
+// kast ships as plain binaries, mac one zipped
+const relBin = (app, version) => {
+  const base = `${DL}/${app}-v${version}/kynetyk-${app}`;
+  return { version, windows: `${base}-windows.exe`, mac: `${base}-mac.zip`, linux: `${base}-linux` };
+};
 
 const LINKS = {
   donate: 'https://ko-fi.com/ritualsyntax',
@@ -23,7 +28,9 @@ const LINKS = {
   dekk: { web: '', ...rel('dekk', '0.1.0') },
   lynk: { web: '', ...rel('lynk', '0.1.1') },
   rakk: { web: '', ...rel('rakk', '0.2.0') },
-  mapp: { web: '', ...rel('mapp', '0.2.0') }
+  mapp: { web: '', ...rel('mapp', '0.2.0') },
+  // kast buttons greyed till the release is mirrored, then swap to: ...relBin('kast', '0.1.0')
+  kast: { web: '', version: '0.1.0', windows: '', mac: '', linux: '' }
 };
 
 // 'kue.windows' -> LINKS.kue.windows

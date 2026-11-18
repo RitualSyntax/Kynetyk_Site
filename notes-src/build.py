@@ -7,7 +7,7 @@ import json, html, datetime, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 D = json.loads((pathlib.Path(__file__).parent / 'notes.json').read_text())
-ORDER = ['kue', 'vyz', 'mapp', 'rakk', 'dekk', 'kode', 'lynk', 'konv']
+ORDER = ['kue', 'vyz', 'mapp', 'rakk', 'dekk', 'kode', 'lynk', 'konv', 'kast']
 LIVE = {p.stem for p in ROOT.glob('*.html')}  # apps that have a product page
 
 # header + footer straight from an existing page so they stay in step
@@ -97,6 +97,6 @@ for p in ROOT.glob('*.html'):
     if n != t: p.write_text(n)
 js = ROOT / 'js' / 'site.js'
 t = js.read_text()
-n = re.sub(r"rel\('(\w+)', '[^']*'\)", lambda m: f"rel('{m.group(1)}', '{newest[m.group(1)]}')" if m.group(1) in newest else m.group(0), t)
+n = re.sub(r"(rel\w*)\('(\w+)', '[^']*'\)", lambda m: f"{m.group(1)}('{m.group(2)}', '{newest[m.group(2)]}')" if m.group(2) in newest else m.group(0), t)
 if n != t: js.write_text(n)
 print('built', len(ORDER) + 1, 'pages, versions:', ' '.join(f'{a} {v}' for a, v in newest.items()))

@@ -296,6 +296,26 @@
           ]
         }
       ]
+    },
+    "kast": {
+      "what": "Screens",
+      "entries": [
+        {
+          "v": "0.1.0",
+          "date": "2026-11-18",
+          "type": "first",
+          "title": "kast is out",
+          "items": [
+            "Send video, images, web pages and colours to smart TVs over the local network",
+            "Each screen opens its own address in its browser and goes fullscreen",
+            "Shows the computer's real network address for the screens, with a picker if it has more than one",
+            "Routing grid: click to put content full frame on a screen, Shift-click to layer it",
+            "Move, scale and rotate content on each screen, with snapping",
+            "Screen ratios and portrait or flipped mounting",
+            "Live updates, Identify and Blackout"
+          ]
+        }
+      ]
     }
   }
 }
