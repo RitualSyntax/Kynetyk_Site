@@ -1,0 +1,136 @@
+// kynetyk site bits
+
+// links - fill these in, empty = button greys out (or hides, for web + notes)
+// apps: rel(repo, file prefix) fills windows/mac/linux from the latest github release
+const rel = (repo, name) => ({
+  windows: `https://github.com/${repo}/releases/latest/download/${name}-windows.exe`,
+  mac: `https://github.com/${repo}/releases/latest/download/${name}-mac.dmg`,
+  linux: `https://github.com/${repo}/releases/latest/download/${name}-linux.AppImage`,
+  notes: `https://github.com/${repo}/releases/latest`,
+  source: `https://github.com/${repo}`
+});
+
+const LINKS = {
+  donate: 'https://ko-fi.com/ritualsyntax',
+  github: 'https://github.com/RitualSyntax',
+  contact: '',   // mailto:you@example.com works
+  kue: { version: '0.3', web: '', ...rel('RitualSyntax/Kue', 'kynetyk-kue') },
+  vyz: { version: '0.1', web: '', ...rel('RitualSyntax/vyz', 'kynetyk-vyz') },
+  kode: { version: '0.1', web: '', ...rel('RitualSyntax/kode', 'kynetyk-kode') },
+  konv: { version: '0.1', web: '', ...rel('RitualSyntax/konv', 'kynetyk-konv') }
+};
+
+// 'kue.windows' -> LINKS.kue.windows
+const pick = key => key.split('.').reduce((o, k) => (o ? o[k] : ''), LINKS) || '';
+
+const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// wire links
+document.querySelectorAll('[data-link]').forEach(a => {
+  const url = pick(a.dataset.link);
+  if (url) {
+    a.href = url;
+  } else if (a.hasAttribute('data-optional')) {
+    a.remove();
+  } else {
+    a.removeAttribute('href');
+    a.setAttribute('aria-disabled', 'true');
+    a.title = 'Coming soon';
+  }
+});
+document.querySelectorAll('[data-text]').forEach(s => { const v = pick(s.dataset.text); if (v) s.textContent = v; });
+const yr = document.getElementById('year');
+if (yr) yr.textContent = new Date().getFullYear();
+
+// departures board flip
+const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+const flips = [...document.querySelectorAll('[data-flip]')];
+if (!still && flips.length) {
+  const finals = flips.map(el => el.textContent);
+  let t = 0;
+  const step = () => {
+    flips.forEach((el, k) => {
+      const row = Math.floor(k / 3);
+      const settle = 4 + row * 3 + (k % 3) * 2;
+      el.textContent = finals[k].split('').map((ch, i) =>
+        (ch === ' ' || t >= settle + i) ? ch : GLYPHS[(i * 7 + t * 13 + k) % GLYPHS.length]).join('');
+    });
+    if (++t <= 44) setTimeout(step, 45);
+    else flips.forEach((el, k) => { el.textContent = finals[k]; });
+  };
+  step();
+}
+
+// ticking timecode, 25fps
+const tcEl = document.getElementById('tc');
+if (tcEl && !still) {
+  let frames = (3600 + 12) * 25;
+  const p = x => String(x).padStart(2, '0');
+  setInterval(() => {
+    frames++;
+    const s = Math.floor(frames / 25);
+    tcEl.textContent = `${p(Math.floor(s / 3600))}:${p(Math.floor(s / 60) % 60)}:${p(s % 60)}:${p(frames % 25)}`;
+  }, 40);
+}
+
+// gallery: auto moves on every 6s until someone clicks a tab
+const tabs = [...document.querySelectorAll('.tabs [role="tab"]')];
+const shots = [...document.querySelectorAll('.stage img')];
+const bar = document.querySelector('.stage .bar i');
+const cap = document.getElementById('caption');
+let cur = 0;
+let held = false;
+let tick = 0;
+function show(i) {
+  cur = i;
+  shots.forEach((im, k) => im.classList.toggle('on', k === i));
+  tabs.forEach((b, k) => b.setAttribute('aria-selected', String(k === i)));
+  if (cap) cap.textContent = shots[i].dataset.cap || '';
+  tick = 0;
+}
+tabs.forEach((b, i) => b.addEventListener('click', () => { held = true; show(i); if (bar) bar.style.width = '100%'; }));
+// arrow keys between tabs
+tabs.forEach((b, i) => b.addEventListener('keydown', e => {
+  if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+  const n = (i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+  held = true;
+  show(n);
+  tabs[n].focus();
+}));
+if (shots.length && !still) {
+  setInterval(() => {
+    if (held) return;
+    tick++;
+    if (bar) bar.style.width = `${tick / 60 * 100}%`;
+    if (tick >= 60) show((cur + 1) % shots.length);
+  }, 100);
+}
+
+// scroll reveals for browsers without scroll-driven animations
+const native = window.CSS && CSS.supports && CSS.supports('animation-timeline: view()');
+const els = document.querySelectorAll('.reveal, .slide, .rise');
+if (!native) {
+  if (still || !('IntersectionObserver' in window)) {
+    els.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    els.forEach(el => io.observe(el));
+  }
+}
+
+// pause the demo video when it's off screen, saves battery
+const vid = document.querySelector('.video-wrap video');
+if (vid && 'IntersectionObserver' in window) {
+  if (still) { vid.removeAttribute('autoplay'); vid.pause(); }
+  new IntersectionObserver(([en]) => {
+    if (still) return;
+    if (en.isIntersecting) vid.play().catch(() => {});
+    else vid.pause();
+  }).observe(vid);
+}
