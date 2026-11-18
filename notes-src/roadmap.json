@@ -133,6 +133,14 @@
     {
       "col": "later",
       "apps": [
+        "konv"
+      ],
+      "title": "HAP built in",
+      "text": "HAP, HAP Q and HAP Alpha straight from the install, without downloading a separate FFmpeg build."
+    },
+    {
+      "col": "later",
+      "apps": [
         "vyz"
       ],
       "title": "Notch Blocks",
