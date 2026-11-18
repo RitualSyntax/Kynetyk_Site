@@ -148,6 +148,14 @@
     },
     {
       "col": "later",
+      "apps": [
+        "dekk"
+      ],
+      "title": "4-band EQ",
+      "text": "A fourth EQ band on every channel, for finer control than the current 3-band EQ."
+    },
+    {
+      "col": "later",
       "apps": [],
       "title": "Signed installers",
       "text": "Code-signed installers, so Windows and macOS stop warning the first time you open an app."
