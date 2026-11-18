@@ -26,6 +26,16 @@
       "what": "Show control",
       "entries": [
         {
+          "v": "0.3.1",
+          "date": "2026-11-18",
+          "type": "update",
+          "title": "New icon",
+          "items": [
+            "New app icon: the Stack mark, a dot-matrix cue list with the red square on the standby cue",
+            "The light rail at the side shows the new mark too"
+          ]
+        },
+        {
           "v": "0.3.0",
           "date": "2026-11-16",
           "type": "first",
@@ -43,6 +53,15 @@
     "vyz": {
       "what": "Live visuals",
       "entries": [
+        {
+          "v": "0.2.2",
+          "date": "2026-11-18",
+          "type": "update",
+          "title": "New icon",
+          "items": [
+            "New app icon: the Grid mark, the dot-matrix clip grid with the red square as the live clip"
+          ]
+        },
         {
           "v": "0.2.1",
           "date": "2026-11-18",
@@ -189,6 +208,15 @@
     "konv": {
       "what": "File converter",
       "entries": [
+        {
+          "v": "0.1.2",
+          "date": "2026-11-18",
+          "type": "update",
+          "title": "New icon",
+          "items": [
+            "New app icon: the Progress mark, a dot-matrix progress ring that starts at the red square"
+          ]
+        },
         {
           "v": "0.1.0",
           "date": "2026-11-17",
