@@ -11,7 +11,7 @@ on:
     inputs:
       apps:
         description: 'repos to copy, space separated'
-        default: 'Kue vyz Kode konv dekk lynk rakk mapp'
+        default: 'Kue vyz Kode konv dekk lynk rakk mapp kast'
 
 permissions:
   contents: write
@@ -22,7 +22,7 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
       SRC_TOKEN: ${{ secrets.APPS_TOKEN || github.token }}
-      APPS: ${{ inputs.apps || 'Kue vyz Kode konv dekk lynk rakk mapp' }}
+      APPS: ${{ inputs.apps || 'Kue vyz Kode konv dekk lynk rakk mapp kast' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -40,8 +40,8 @@ jobs:
             echo "== $r $tag -> $newtag"
             have=$(gh api repos/$GITHUB_REPOSITORY/releases/tags/$newtag -q '.assets[].name' 2>/dev/null || true)
             rm -rf dl && mkdir dl
-            # installers only, only the ones not already here
-            echo "$rel" | jq -r '.assets[] | select(.name|test("\\.(exe|dmg|AppImage)$")) | "\(.id) \(.name)"' | while read id name; do
+            # installers only (kast is plain binaries + a mac zip), skip ones already here
+            echo "$rel" | jq -r '.assets[] | select(.name|test("\\.(exe|dmg|AppImage|zip)$|-linux$")) | "\(.id) \(.name)"' | while read id name; do
               if echo "$have" | grep -qx "$name"; then echo "  have $name"; continue; fi
               echo "  get $name"
               GH_TOKEN=$SRC_TOKEN gh api -H "Accept: application/octet-stream" repos/RitualSyntax/$r/releases/assets/$id > "dl/$name"
