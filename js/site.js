@@ -17,12 +17,13 @@ const LINKS = {
   donate: 'https://ko-fi.com/ritualsyntax',
   contact: '',   // mailto: works
   kue: { web: '', ...rel('kue', '0.3.0') },
-  vyz: { web: '', ...rel('vyz', '0.1.1') },
+  vyz: { web: '', ...rel('vyz', '0.2.0') },
   kode: { web: '', ...rel('kode', '0.1.1') },
   konv: { web: '', ...rel('konv', '0.1.0') },
   dekk: { web: '', ...rel('dekk', '0.1.0') },
-  lynk: { web: '', ...rel('lynk', '0.1.0') },
-  rakk: { web: '', ...rel('rakk', '0.1.1') }
+  lynk: { web: '', ...rel('lynk', '0.1.1') },
+  rakk: { web: '', ...rel('rakk', '0.2.0') },
+  mapp: { web: '', ...rel('mapp', '0.2.0') }
 };
 
 // 'kue.windows' -> LINKS.kue.windows

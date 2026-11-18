@@ -11,7 +11,7 @@ on:
     inputs:
       apps:
         description: 'repos to copy, space separated'
-        default: 'Kue vyz Kode konv dekk lynk rakk'
+        default: 'Kue vyz Kode konv dekk lynk rakk mapp'
 
 permissions:
   contents: write
@@ -22,7 +22,7 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
       SRC_TOKEN: ${{ secrets.APPS_TOKEN || github.token }}
-      APPS: ${{ inputs.apps || 'Kue vyz Kode konv dekk lynk rakk' }}
+      APPS: ${{ inputs.apps || 'Kue vyz Kode konv dekk lynk rakk mapp' }}
     steps:
       - uses: actions/checkout@v4
         with:
