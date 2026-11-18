@@ -1,23 +1,29 @@
 // kynetyk site bits
 
-// links - fill these in, empty = button greys out (or hides, for web + notes)
-// apps: rel(repo, file prefix) fills windows/mac/linux from the latest github release
-const rel = (repo, name) => ({
-  windows: `https://github.com/${repo}/releases/latest/download/${name}-windows.exe`,
-  mac: `https://github.com/${repo}/releases/latest/download/${name}-mac.dmg`,
-  linux: `https://github.com/${repo}/releases/latest/download/${name}-linux.AppImage`,
-  notes: `https://github.com/${repo}/releases/latest`,
-  source: `https://github.com/${repo}`
-});
+// links. empty = button greys out (web just hides)
+// installers live on the site repo releases, tagged app-vX.Y.Z
+const DL = 'https://github.com/RitualSyntax/Kynetyk_Site/releases/download';
+const rel = (app, version, files = {}) => {
+  const base = `${DL}/${app}-v${version}/kynetyk-${app}`;
+  return {
+    version,
+    windows: files.windows ?? `${base}-windows.exe`,
+    mac: files.mac ?? `${base}-mac.dmg`,
+    linux: files.linux ?? `${base}-linux.AppImage`
+  };
+};
 
 const LINKS = {
   donate: 'https://ko-fi.com/ritualsyntax',
-  github: 'https://github.com/RitualSyntax',
-  contact: '',   // mailto:you@example.com works
-  kue: { version: '0.3', web: '', ...rel('RitualSyntax/Kue', 'kynetyk-kue') },
-  vyz: { version: '0.1', web: '', ...rel('RitualSyntax/vyz', 'kynetyk-vyz') },
-  kode: { version: '0.1.1', web: '', ...rel('RitualSyntax/Kode', 'kynetyk-kode') },
-  konv: { version: '0.1.1', web: '', ...rel('RitualSyntax/konv', 'kynetyk-konv') }
+  contact: '',   // mailto: works
+  kue: { web: '', ...rel('kue', '0.3.0') },
+  vyz: { web: '', ...rel('vyz', '0.1.1') },
+  kode: { web: '', ...rel('kode', '0.1.1') },
+  konv: { web: '', ...rel('konv', '0.1.0') },
+  dekk: { web: '', ...rel('dekk', '0.1.0') },
+  lynk: { web: '', ...rel('lynk', '0.1.0') },
+  // rakk is windows only for now
+  rakk: { web: '', ...rel('rakk', '0.1.0', { windows: `${DL}/rakk-v0.1.0/kynetyk-rakk-setup-0.1.0.exe`, mac: '', linux: '' }) }
 };
 
 // 'kue.windows' -> LINKS.kue.windows
