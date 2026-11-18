@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# builds the patch notes pages from notes.json
+# builds the patch notes pages from notes.json and roadmap.html from roadmap.json
 # add an entry to notes.json (newest first), run: python3 notes-src/build.py
 # also sets the version shown on every page and the download links in js/site.js to the newest entry
 # (only push once the installers are mirrored, or the download buttons 404)
@@ -70,6 +70,24 @@ body = f'''    <section class="wrap nhero">
     </section>
     <section class="band"><div class="wrap section-pad stack"><h2 style="font-size: clamp(22px, 2.4vw, 28px)">By app</h2><div class="ncards">{cards}</div></div></section>'''
 (ROOT / 'patch-notes.html').write_text(page('KYNETYK: patch notes', 'What is new in every KYNETYK app.', body))
+
+# roadmap
+R = json.loads((pathlib.Path(__file__).parent / 'roadmap.json').read_text())
+def chipicons(apps):
+    return ''.join(f'<a class="rapp" href="{a}.html"><img src="media/icons/{a}.png" alt="" width="20" height="20"><span class="dot">{a}</span></a>' for a in apps) or '<span class="dim small">Every app</span>'
+cols = ''
+for c in R['columns']:
+    items = ''.join(f'<article class="ritem"><div class="ricons">{chipicons(i["apps"])}</div><h3>{e(i["title"])}</h3><p>{e(i["text"])}</p></article>' for i in R['items'] if i['col'] == c['id'])
+    cols += f'<section class="rcol {c["id"]}"><h2>{e(c["name"])}</h2><p class="dim small">{e(c["note"])}</p><div class="ritems">{items}</div></section>'
+body = (
+    '    <section class="wrap nhero">\n'
+    '      <h1 class="intro">Roadmap</h1>\n'
+    '      <p class="lede intro i2">What\'s just landed, what\'s next and what\'s planned for the KYNETYK apps. Plans can change; the <a href="patch-notes.html">patch notes</a> have everything that\'s actually out.</p>\n'
+    '    </section>\n'
+    f'    <section class="wrap rmap">{cols}</section>\n'
+    '    <section class="band"><div class="wrap section-pad stack"><h2 style="font-size: clamp(22px, 2.4vw, 28px)">Something missing?</h2><p class="lede">Requests from people using the apps on real shows shape what gets built next. Leave a message on the <a href="https://ko-fi.com/ritualsyntax" target="_blank" rel="noopener">Ko-fi page</a>.</p></div></section>'
+)
+(ROOT / 'roadmap.html').write_text(page('KYNETYK: roadmap', 'What is next for the KYNETYK apps.', body))
 
 # versions everywhere = newest entry
 newest = {app: D['apps'][app]['entries'][0]['v'] for app in ORDER}

@@ -1,0 +1,24 @@
+{
+  "columns": [
+    { "id": "shipped", "name": "Recently shipped", "note": "Out now. Full details are in the patch notes." },
+    { "id": "next", "name": "Up next", "note": "Being worked on now or next in line." },
+    { "id": "later", "name": "Later", "note": "Planned, but not started yet. Order may change." }
+  ],
+  "items": [
+    { "col": "shipped", "apps": ["vyz", "rakk", "mapp", "lynk"], "title": "Virtual outputs on Windows", "text": "vyz and rakk send their picture straight to mapp and other Spout apps, with no window to capture. lynk can patch them." },
+    { "col": "shipped", "apps": ["mapp"], "title": "mapp is out", "text": "Projection mapping with surfaces, masks, edge blending and cues." },
+    { "col": "shipped", "apps": ["vyz"], "title": "Always live", "text": "No Go live button. Outputs open automatically." },
+
+    { "col": "next", "apps": ["vyz", "rakk", "mapp"], "title": "Virtual outputs on Mac", "text": "The same no-window video sharing on macOS, over Syphon." },
+
+    { "col": "later", "apps": ["vyz", "rakk", "mapp", "lynk"], "title": "NDI", "text": "Send and receive video between machines on the network." },
+    { "col": "later", "apps": ["vyz", "lynk"], "title": "Ableton Link", "text": "Share tempo with Ableton Live and other Link apps." },
+    { "col": "later", "apps": ["lynk"], "title": "LTC out", "text": "Send timecode out as audio from lynk." },
+    { "col": "later", "apps": ["vyz"], "title": "HAP playback", "text": "Smooth playback of HAP encoded video, which konv can already make." },
+    { "col": "later", "apps": ["vyz"], "title": "Multi-pass ISF shaders", "text": "Support for ISF shaders with more than one pass." },
+    { "col": "later", "apps": ["mapp"], "title": "3D model mapping", "text": "Map onto 3D objects as well as flat surfaces." },
+    { "col": "later", "apps": ["konv"], "title": "konv on Intel Macs", "text": "A macOS build for Intel Macs as well as Apple Silicon." },
+    { "col": "later", "apps": ["konv"], "title": "konv in the browser", "text": "A web version of konv." },
+    { "col": "later", "apps": [], "title": "Signed installers", "text": "Code-signed installers, so Windows and macOS stop warning the first time you open an app." }
+  ]
+}

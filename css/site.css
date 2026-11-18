@@ -367,3 +367,22 @@ section { scroll-margin-top: 80px; }
 .lbl-dot { color: var(--red); font-size: 18px; letter-spacing: 3px; }
 .mchips-icons .mchip { align-items: center; }
 .mchips-icons .mchip img { border-radius: 6px; flex-shrink: 0; }
+
+/* roadmap */
+.rmap { display: flex; flex-wrap: wrap; gap: 18px; padding-bottom: 88px; align-items: flex-start; }
+.rcol { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+.rcol h2 { font-size: 22px; display: flex; align-items: center; gap: 10px; }
+.rcol h2::before { content: ''; width: 10px; height: 10px; background: #555; }
+.rcol.shipped h2::before { background: var(--go); }
+.rcol.next h2::before { background: var(--red); }
+.rcol > p { margin: 0 0 4px; text-align: left; }
+.ritems { display: flex; flex-direction: column; gap: 12px; }
+.rcol.later { flex-basis: 100%; margin-top: 24px; }
+.rcol.later .ritems { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.ritem { border: 1px solid var(--line); background: #131313; border-radius: 8px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; }
+.rcol.next .ritem { border-color: rgba(229,70,59,.5); }
+.ritem h3 { font-size: 18px; font-weight: 700; }
+.ritem p { margin: 0; color: var(--dim); font-size: 15px; line-height: 1.55; }
+.ricons { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; min-height: 22px; }
+.rapp { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: var(--red); font-size: 15px; }
+.rapp img { border-radius: 5px; display: block; }
