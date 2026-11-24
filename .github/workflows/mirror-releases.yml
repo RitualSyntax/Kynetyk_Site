@@ -4,6 +4,7 @@ name: Mirror app installers
 # releases sit on the empty downloads branch so "source code" zips are just a readme
 # app repos need to be public, or set an APPS_TOKEN secret with read access
 # runs when this file changes on main, or by hand from the actions tab
+# (touch this comment to re-run after an app release)
 on:
   push:
     branches: [main]
