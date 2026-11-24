@@ -318,6 +318,20 @@
       "what": "Screens",
       "entries": [
         {
+          "v": "0.2.0",
+          "date": "2026-11-24",
+          "type": "major",
+          "title": "Wall mode",
+          "items": [
+            "New Wall tab: one big canvas spread across several screens, each showing its own slice",
+            "Put a screen on the wall with On Wall, then drag, scale and rotate it to match how it hangs",
+            "Line Up Screens puts wall screens side by side and fits the wall to them",
+            "Screens snap to each other on the wall",
+            "Wall column in Routing for one-click content across the whole wall",
+            "Videos now stay in sync across every screen"
+          ]
+        },
+        {
           "v": "0.1.0",
           "date": "2026-11-18",
           "type": "first",
