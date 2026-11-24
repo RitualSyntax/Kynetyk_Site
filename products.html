@@ -15,11 +15,12 @@
   <link rel="apple-touch-icon" href="media/apple-touch-icon.png">
   <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/doto.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=10">
+  <link rel="stylesheet" href="css/site.css?v=11">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  <div class="devbar" role="note"><div class="wrap"><i aria-hidden="true"></i><p><b>In active development.</b> Every KYNETYK app is still being built, so bugs and crashes can happen. Not recommended for big shows yet. <a href="products.html#early">Read more</a></p></div></div>
 
   <header class="site-head">
     <nav class="wrap" aria-label="Main">
@@ -37,8 +38,18 @@
   <main id="main">
     <section class="wrap phead">
       <h1 class="intro">Products</h1>
-      <p class="note intro"><span class="new">New</span>mapp is out, and vyz and rakk now send straight to it as virtual outputs. Downloads for every app are below.</p>
       <p class="lede intro i2">Free tools for live shows, for Windows, macOS and Linux. Each one does one job well, and they talk to each other.</p>
+    </section>
+    <section id="early" class="wrap early" aria-labelledby="early-h">
+      <div class="early-box">
+        <i aria-hidden="true"></i>
+        <div>
+          <h2 id="early-h">Still in active development</h2>
+          <p>Every KYNETYK app is early software, built and tested by one person. New versions land often, and with them can come bugs, missing pieces and the occasional crash.</p>
+          <p>Right now they're not recommended for big shows or anything where a failure would cost you. Use them for rehearsals, small gigs, learning and experiments, always test your show in the app before the night, and keep a backup plan ready.</p>
+          <p class="dim">Found a bug? Leave a message on the <a href="https://ko-fi.com/ritualsyntax" target="_blank" rel="noopener">Ko-fi page</a>, and check the <a href="patch-notes.html">patch notes</a> for what's been fixed.</p>
+        </div>
+      </div>
     </section>
     <section class="wrap pgrid" aria-label="Available now">
         <article class="pcard slide">
@@ -80,7 +91,7 @@
         <article class="pcard slide">
           <a class="pshot" href="dekk.html" tabindex="-1" aria-hidden="true"><div class="mock dekk" role="img" aria-label="dekk with four waveform lanes and BPM readouts"><span class="lane"><span class="lbl">DECK 1</span><span class="wave hot"></span><span class="dot">124.00</span></span><span class="lane"><span class="lbl">DECK 2</span><span class="wave"></span><span class="dot">124.00</span></span><span class="lane"><span class="lbl">DECK 3</span><span class="wave"></span><span class="dot">122.50</span></span><span class="lane"><span class="lbl">DECK 4</span><span class="wave"></span><span class="dot">128.00</span></span><span class="lbl foot">MASTER  DECK 1  SYNC ON  8A</span></div></a>
           <div class="pbody">
-            <div class="ptop"><span class="prod"><span class="kn">KYNETYK</span><span class="pn">dekk</span></span><span class="new">New</span><span class="dot ver">V<span data-text="dekk.version">0.2.0</span></span></div>
+            <div class="ptop"><span class="prod"><span class="kn">KYNETYK</span><span class="pn">dekk</span></span><span class="dot ver">V<span data-text="dekk.version">0.2.0</span></span></div>
             <p>DJ software for live production. Two or four decks, beat analysis, sync, hot cues and a full mixer.</p>
             <div class="ctas"><a class="btn sm" href="dekk.html#download">Download</a><a class="btn sm ghost" href="dekk.html">More about dekk</a><a class="btn sm ghost" href="dekk-patch-notes.html">Patch notes</a></div>
           </div>
@@ -88,7 +99,7 @@
         <article class="pcard slide">
           <a class="pshot" href="lynk.html" tabindex="-1" aria-hidden="true"><div class="mock lynk" role="img" aria-label="lynk patching outputs from one app into another"><span class="lbl">LYNK / PATCH</span><span class="patch"><span class="nd">dekk  BPM</span><span class="cable"></span><span class="nd">vyz  CLOCK</span><span class="lbl">OSC</span></span><span class="patch"><span class="nd">kode  LTC</span><span class="cable"></span><span class="nd">kue  TIMECODE</span><span class="lbl">SYNC</span></span><span class="patch"><span class="nd">vyz  MIX</span><span class="cable"></span><span class="nd">mapp  INPUT</span><span class="lbl">SPOUT</span></span><span class="patch"><span class="nd">rakk  OUT</span><span class="cable"></span><span class="nd">vyz  LAYER 3</span><span class="lbl">NDI</span></span></div></a>
           <div class="pbody">
-            <div class="ptop"><span class="prod"><span class="kn">KYNETYK</span><span class="pn">lynk</span></span><span class="new">New</span><span class="dot ver">V<span data-text="lynk.version">0.1.2</span></span></div>
+            <div class="ptop"><span class="prod"><span class="kn">KYNETYK</span><span class="pn">lynk</span></span><span class="dot ver">V<span data-text="lynk.version">0.1.2</span></span></div>
             <p>The bridge between the KYNETYK apps. See what every app puts out and patch it where it needs to go.</p>
             <div class="ctas"><a class="btn sm" href="lynk.html#download">Download</a><a class="btn sm ghost" href="lynk.html">More about lynk</a><a class="btn sm ghost" href="lynk-patch-notes.html">Patch notes</a></div>
           </div>
@@ -96,7 +107,7 @@
         <article class="pcard slide">
           <a class="pshot" href="rakk.html" tabindex="-1" aria-hidden="true"><div class="mock rakk" role="img" aria-label="rakk faders and scene pads"><span class="faders"><i style="height:72%"></i><i style="height:40%"></i><i style="height:88%"></i><i style="height:55%"></i><i style="height:30%"></i><i style="height:64%"></i><i style="height:92%"></i><i style="height:48%"></i></span><span class="pads"><i></i><i></i><i class=on></i><i></i><i></i><i></i><i></i><i></i></span><span class="lbl">LAYER A  ×  LAYER B   124 BPM   MORPH 1 BAR</span></div></a>
           <div class="pbody">
-            <div class="ptop"><span class="prod"><span class="kn">KYNETYK</span><span class="pn">rakk</span></span><span class="new">New</span><span class="dot ver">V<span data-text="rakk.version">0.2.0</span></span></div>
+            <div class="ptop"><span class="prod"><span class="kn">KYNETYK</span><span class="pn">rakk</span></span><span class="dot ver">V<span data-text="rakk.version">0.2.0</span></span></div>
             <p>Live shader visuals you play like an instrument. Faders, modulation and scenes, no code on screen.</p>
             <div class="ctas"><a class="btn sm" href="rakk.html#download">Download</a><a class="btn sm ghost" href="rakk.html">More about rakk</a><a class="btn sm ghost" href="rakk-patch-notes.html">Patch notes</a></div>
           </div>
@@ -112,7 +123,7 @@
         <article class="pcard slide">
           <a class="pshot" href="kast.html" tabindex="-1" aria-hidden="true"><div class="mock kast" role="img" aria-label="kast routing three inputs to three screens"><span class="lbl">KAST / SCREENS</span><span class="tvs"><span class="tv"><i class="on"></i>FOYER</span><span class="tv"><i></i>BAR</span><span class="tv"><i class="pt on"></i>ENTRANCE</span></span><span class="grid"><span class="lbl">LOOP.MP4</span><b class="on"></b><b></b><b></b><span class="lbl">MENU.PNG</span><b></b><b class="on"></b><b></b><span class="lbl">POSTER.JPG</span><b></b><b></b><b class="on"></b></span></div></a>
           <div class="pbody">
-            <div class="ptop"><span class="prod"><span class="kn">KYNETYK</span><span class="pn">kast</span></span><span class="new">New</span><span class="dot ver">V<span data-text="kast.version">0.1.0</span></span></div>
+            <div class="ptop"><span class="prod"><span class="kn">KYNETYK</span><span class="pn">kast</span></span><span class="dot ver">V<span data-text="kast.version">0.1.0</span></span></div>
             <p>Content for smart TVs over your network. Route video, images and web pages to any screen and place them exactly, live.</p>
             <div class="ctas"><a class="btn sm" href="kast.html#download">Download</a><a class="btn sm ghost" href="kast.html">More about kast</a><a class="btn sm ghost" href="kast-patch-notes.html">Patch notes</a></div>
           </div>

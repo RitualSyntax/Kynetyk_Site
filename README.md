@@ -30,6 +30,10 @@ You can also find every installer on the [Releases page](https://github.com/Ritu
 
 The apps are built as one family. Cue your visuals from kue, sync them to dekk's tempo, keep everything on one clock with kode, and patch the lot together in lynk.
 
+## Early Software
+
+Every KYNETYK app is in active development. Bugs and crashes can happen, and things change between versions. **They're not recommended for big shows at this time.** Use them for rehearsals, small gigs and experiments, test your show properly first, and keep a backup ready.
+
 ## Installing
 
 The apps aren't code-signed yet, so your computer may warn you the first time you open one.

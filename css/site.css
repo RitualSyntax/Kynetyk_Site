@@ -407,3 +407,18 @@ section { scroll-margin-top: 80px; }
 .mock.kast .grid { display: grid; grid-template-columns: 90px 1fr 1fr 1fr; gap: 6px 14px; align-items: center; }
 .mock.kast .grid b { height: 10px; width: 10px; justify-self: center; background: #2a2a2a; }
 .mock.kast .grid b.on { background: var(--red); }
+
+/* dev warning - thin bar on every page + box on products */
+.devbar { background: #1a1210; border-bottom: 1px solid #3a2420; font-size: 14px; color: var(--dim); }
+.devbar .wrap { display: flex; align-items: center; gap: 12px; padding-top: 9px; padding-bottom: 9px; }
+.devbar i, .early-box > i { width: 9px; height: 9px; background: var(--red); flex-shrink: 0; }
+.devbar p { margin: 0; }
+.devbar b { color: var(--ink); font-weight: 700; }
+.devbar a { color: var(--ink); text-decoration: none; border-bottom: 1px solid #5a2e28; white-space: nowrap; }
+.devbar a:hover { border-color: var(--red); }
+.early { padding-bottom: 40px; scroll-margin-top: 90px; }
+.early-box { display: flex; gap: 18px; align-items: flex-start; border: 1px solid #3a2420; border-left: 3px solid var(--red); background: #161110; border-radius: 10px; padding: 24px 26px; }
+.early-box > i { margin-top: 12px; }
+.early-box h2 { font-size: clamp(22px, 2.4vw, 28px); margin-bottom: 10px; }
+.early-box p { margin: 0 0 10px; color: var(--dim); max-width: 75ch; }
+.early-box p:last-child { margin-bottom: 0; }
