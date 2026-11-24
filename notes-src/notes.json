@@ -274,6 +274,23 @@
       "what": "DJ",
       "entries": [
         {
+          "v": "0.2.0",
+          "date": "2026-11-24",
+          "type": "update",
+          "title": "Sync, beatgrids and eject",
+          "items": [
+            "New beat detection that locks onto the kick, so grids line up with the beat",
+            "Beatgrid editing on every deck with the GRID button: move the grid, nudge or halve/double the BPM, tap tempo, set beat 1, fit the grid to a later kick, or drag the waveform",
+            "The same grid tools in Prepare, plus a drag grid mode",
+            "Tempo range setting so tracks like drum & bass come out at 174, not 87",
+            "Sync now keeps decks locked to the master's beat, and the master hands over when it stops",
+            "Moving the tempo on any synced deck moves them all",
+            "Quantise keeps hot cues and jumps on the beat",
+            "Eject button on each deck",
+            "Tracks analysed by 0.1 are re-analysed automatically, unless you fixed the grid yourself"
+          ]
+        },
+        {
           "v": "0.1.1",
           "date": "2026-11-18",
           "type": "update",

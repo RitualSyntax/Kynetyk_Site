@@ -26,7 +26,7 @@ const LINKS = {
   vyz: { web: '', ...rel('vyz', '0.2.3'), mac: rel('vyz', '0.2.2').mac },
   kode: { web: '', ...rel('kode', '0.1.1') },
   konv: { web: '', ...rel('konv', '0.1.0') },
-  dekk: { web: '', ...rel('dekk', '0.1.1') },
+  dekk: { web: '', ...rel('dekk', '0.2.0') },
   lynk: { web: '', ...rel('lynk', '0.1.2') },
   rakk: { web: '', ...rel('rakk', '0.2.0') },
   mapp: { web: '', ...rel('mapp', '0.2.1') },
