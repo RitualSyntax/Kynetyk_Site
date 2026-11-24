@@ -100,3 +100,14 @@ t = js.read_text()
 n = re.sub(r"(rel\w*)\('(\w+)', '[^']*'\)", lambda m: f"{m.group(1)}('{m.group(2)}', '{newest[m.group(2)]}')" if m.group(2) in newest else m.group(0), t)
 if n != t: js.write_text(n)
 print('built', len(ORDER) + 1, 'pages, versions:', ' '.join(f'{a} {v}' for a, v in newest.items()))
+
+# cache bust: pages load site.js?v=<hash> so browsers pick up new versions/links
+def stamp():
+    import hashlib
+    h = hashlib.sha1((ROOT / 'js' / 'site.js').read_bytes()).hexdigest()[:8]
+    for p in ROOT.glob('*.html'):
+        t = p.read_text()
+        n = re.sub(r'js/site\.js\?v=[^"]*"', f'js/site.js?v={h}"', t)
+        if n != t: p.write_text(n)
+    return h
+print('site.js stamp', stamp())
