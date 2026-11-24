@@ -274,6 +274,20 @@
       "what": "DJ",
       "entries": [
         {
+          "v": "0.3.0",
+          "date": "2026-11-24",
+          "type": "update",
+          "title": "Help guide for beginners",
+          "items": [
+            "New Help tab (Ctrl+4) with a step-by-step beginner's guide: audio setup, the library, a tour of the screen, your first mix, beatgrids, sync, cues and loops, EQ, counting bars, keys, controllers, recording, common problems and a glossary",
+            "\"Show me\" buttons in the guide jump to the part of the screen being explained and highlight it",
+            "\"New to DJing?\" link on the welcome screen",
+            "Fixed: pressing CUE while a track was playing paused it but didn't jump back to the cue point",
+            "Fixed: the headphone preview button in the library stayed lit after Prepare playback stopped",
+            "Files dekk can't read are now labelled clearly in the library"
+          ]
+        },
+        {
           "v": "0.2.0",
           "date": "2026-11-24",
           "type": "update",
